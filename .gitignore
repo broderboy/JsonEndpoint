@@ -1,0 +1,5 @@
+.DS_Store
+myenv*
+djangosite/djangosite/local_settings.py
+*.pyc
+*.db
