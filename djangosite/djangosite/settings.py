@@ -41,6 +41,7 @@ INSTALLED_APPS = (
     'taggit',
     'django_extensions',
     'reversion',
+    'corsheaders',
 
     'endpoint',
 )
@@ -52,6 +53,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+     'corsheaders.middleware.CorsMiddleware'
 )
 
 ROOT_URLCONF = 'djangosite.urls'
@@ -87,5 +89,7 @@ STATIC_URL = '/static/'
 
 #STATIC_DOC_ROOT = os.path.join(os.path.dirname(__file__), '..', 'static')
 #print STATIC_DOC_ROOT
+
+CORS_ORIGIN_ALLOW_ALL = True
 
 from local_settings import *
