@@ -53,8 +53,8 @@ class MockObjectClass(models.Model):
 
 
 class MockObject(models.Model):
-    object_id = models.CharField(max_length=255, unique=True)
-    description = models.CharField(max_length=255, unique=True)
+    object_id = models.CharField(max_length=255)
+    description = models.CharField(max_length=255, null=True, blank=True)
     mock_class = models.ForeignKey(MockObjectClass)
     blob = JSONField()
 

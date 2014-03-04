@@ -15,7 +15,7 @@ class JsonEndpointAdmin(reversion.VersionAdmin):
 
 class MockObjectAdmin(admin.StackedInline):
     model = MockObject
-    extra = 1
+    extra = 0
 
 
 class MockObjectClassAdmin(reversion.VersionAdmin):
@@ -26,4 +26,3 @@ class MockObjectClassAdmin(reversion.VersionAdmin):
 admin.site.register(JsonEndpoint, JsonEndpointAdmin)
 admin.site.register(AuthEndpoint)
 admin.site.register(MockObjectClass, MockObjectClassAdmin)
-# admin.site.register(MockObject)
