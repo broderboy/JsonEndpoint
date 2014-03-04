@@ -48,9 +48,16 @@ class MockObjectClass(models.Model):
 
     class_name = models.CharField(max_length=255, unique=True)
 
+    def __unicode__(self):
+        return self.class_name
+
 
 class MockObject(models.Model):
     object_id = models.CharField(max_length=255, unique=True)
     description = models.CharField(max_length=255, unique=True)
     mock_class = models.ForeignKey(MockObjectClass)
     blob = JSONField()
+
+    def __unicode__(self):
+        return "%s/%s (%s)" % (self.mock_class.class_name, self.object_id, self.description)
+
