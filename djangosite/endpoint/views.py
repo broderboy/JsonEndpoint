@@ -108,7 +108,7 @@ class MockObjectView(View):
                 matching_objects = MockObject.objects.all(mock_class=mock_object_class)
                 return HttpResponse(simplejson.dumps([mock_object.blob for mock_object in matching_objects]), mimetype="application/json")
             else:
-                matching_object = MockObject.objects.get(object_id=object_id)
+                matching_object = MockObject.objects.get(mock_class=mock_object_class, object_id=object_id)
                 return HttpResponse(simplejson.dumps(matching_object.blob), mimetype="application/json")
         except MockObject.DoesNotExist:
             raise Http404
@@ -126,7 +126,7 @@ class MockObjectView(View):
 
         matching_object = None
         try:
-            matching_object = MockObject.objects.get(object_id=object_id)
+            matching_object = MockObject.objects.get(mock_class=mock_object_class, object_id=object_id)
         except MockObject.DoesNotExist:
             matching_object = MockObject()
             matching_object.object_id = object_id
