@@ -41,3 +41,16 @@ class AuthEndpoint(models.Model):
     def url(self):
         return "/%s/" % self.slug
 
+
+class MockObjectClass(models.Model):
+    class Meta:
+        verbose_name_plural = "mock object classes"
+
+    class_name = models.CharField(max_length=255, unique=True)
+
+
+class MockObject(models.Model):
+    object_id = models.CharField(max_length=255, unique=True)
+    description = models.CharField(max_length=255, unique=True)
+    mock_class = models.ForeignKey(MockObjectClass)
+    blob = JSONField()
