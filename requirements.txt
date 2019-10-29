@@ -1,4 +1,4 @@
-Django==1.6.2
+Django==1.11.23
 -e git+ssh://git@github.com/egonSchiele/Django-EditArea.git@f27131d2a210e4dd32cffa3f29d73fcc2477e1af#egg=Django_EditArea-master
 MySQL-python
 South==0.8.4
